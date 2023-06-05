@@ -1,6 +1,25 @@
 import mongoose from "mongose"
+
 const comicSchema = new mongoose.Schema({
-    // Code
+    name: {
+        type: String,
+    },
+    price: {
+        type: Number,
+    },
+    image: {
+        type: String,
+    },
+    category_id: {
+        type: mongoose.Types.ObjectId,
+        ref: "Category",
+    },
+    author_id: [
+        {
+            type: mongoose.Types.ObjectId,
+            ref: "Author",
+        },
+    ],
 },
     { timestamps: true, versionKey: false }
 )
