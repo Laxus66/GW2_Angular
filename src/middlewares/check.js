@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 import User from "../models/user";
-
 export const check = async (req, res, next) => {
+
     try {
         if (!req.headers.authorization) {
             return res.status(401).json({
