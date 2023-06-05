@@ -1,10 +1,12 @@
 import User from "../models/user";
-import bcrypt from "bcryptjs";
 import { signinSchema, signupSchema } from "../schemas/user";
+
 import jwt from "jsonwebtoken"
 
 export const signUp = async (req, res) => {
+
     try {
+        // validate đầu vào
 
         const { error } = signupSchema.validate(req.body, { abortEarly: false });
         if (error) {
@@ -13,7 +15,6 @@ export const signUp = async (req, res) => {
             return res.status(400).json({
                 messages: errors,
             });
-        }
 
         const userExist = await User.findOne({ email: req.body.email });
         if (userExist) {
@@ -21,7 +22,6 @@ export const signUp = async (req, res) => {
                 messages: "Email đã tồn tại",
             });
         }
-
 
         const hashedPassword = await bcrypt.hash(req.body.password, 10);
 
@@ -40,9 +40,7 @@ export const signUp = async (req, res) => {
     } catch (error) {}
 };
 
-
 export const signIn = async (req, res) => {
-    console.log(1);
     try {
         const { error } = signinSchema.validate(req.body, { abortEarly: false });
         if (error) {
