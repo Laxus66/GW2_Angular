@@ -12,7 +12,7 @@ app.use(express.json())
 app.use("/api", categoryRouter);
 app.use("/api", comicRouter);
 app.use("/api", authorRouter);
-app.use("/api", userRouter);
+
 
 mongoose.connect("mongodb://localhost:27017/")
 export const viteNodeApp = app
