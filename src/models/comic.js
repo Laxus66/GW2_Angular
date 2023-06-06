@@ -1,4 +1,4 @@
-import mongoose from "mongose"
+import mongoose from "mongoose"
 
 const comicSchema = new mongoose.Schema({
     name: {
