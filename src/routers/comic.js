@@ -8,6 +8,6 @@ router.post('/comic/add', check, createComic);
 router.get('/comic', getAllComics);
 router.get('/comic/:id', getOneComic);
 router.delete('/comic/:id', check, removeComic);
-router.put('/comic/:id', check, updateComic);
+router.put('/comic/:id/update', check, updateComic);
 
 export default router;

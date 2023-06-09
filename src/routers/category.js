@@ -8,6 +8,6 @@ router.post('/category/add', check, createCategory);
 router.get('/category', getAllCategories);
 router.get('/category/:id', getOneCategory);
 router.delete('/category/:id', check, removeCategory);
-router.put('/category/:id', check, updateCategory);
+router.put('/category/:id/update', check, updateCategory);
 
 export default router;

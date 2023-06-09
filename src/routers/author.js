@@ -8,6 +8,6 @@ router.post('/author/add', check, createAuthor);
 router.get('/author', getAllAuthors);
 router.get('/author/:id', getOneAuthor);
 router.delete('/author/:id', check, removeAuthor);
-router.put('/author/:id', check, updateAuthor);
+router.put('/author/:id/update', check, updateAuthor);
 
 export default router;
