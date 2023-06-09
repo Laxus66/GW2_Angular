@@ -1,11 +1,11 @@
-import mongoose from "mongose"
+import mongoose from "mongoose"
 
 const comicSchema = new mongoose.Schema({
     name: {
         type: String,
     },
-    price: {
-        type: Number,
+    description: {
+        type: String,
     },
     image: {
         type: String,
