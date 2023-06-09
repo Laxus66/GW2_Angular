@@ -1,4 +1,4 @@
-import mongoose from "mongose"
+import mongoose from "mongoose"
 const categorySchema = new mongoose.Schema({
     name: {
         type: String,

@@ -1,3 +1,4 @@
+import joi from "joi";
 export const comicSchema = joi.object({
     name: joi.string().required().messages({
         "string.empty": "Tên không được để trống",
