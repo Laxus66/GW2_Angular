@@ -25,7 +25,7 @@ export const getAllCategories = async (req, res) => {
 export const getOneCategory = async (req, res) => {
     try {
         // Code
-        const category = await Category.findById(req.params.id).populate("products");
+        const category = await Category.findById(req.params.id);
         if (!category) {
             return res.json({
                 message: "Không tìm thấy danh mục",
