@@ -14,12 +14,11 @@ const comicSchema = new mongoose.Schema({
         type: mongoose.Types.ObjectId,
         ref: "Category",
     },
-    author_id: [
-        {
-            type: mongoose.Types.ObjectId,
-            ref: "Author",
-        },
-    ],
+    author_id:
+    {
+        type: mongoose.Types.ObjectId,
+        ref: "Author",
+    },
 },
     { timestamps: true, versionKey: false }
 )
