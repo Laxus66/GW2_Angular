@@ -9,7 +9,6 @@ export const comicSchema = joi.object({
         "any.required": "ID tác giả là bắt buộc",
     }),
     images: joi.array().items(joi.object({
-        _id: joi.string().allow(null), // Cho phép trường _id hoặc có thể xóa nếu không muốn cho phép
         id: joi.number().required().messages({
             "number.base": "ID hình ảnh phải là một số",
             "any.required": "ID hình ảnh là bắt buộc",
@@ -22,7 +21,6 @@ export const comicSchema = joi.object({
         "array.base": "Danh sách hình ảnh phải là một mảng",
         "any.required": "Danh sách hình ảnh là bắt buộc",
     }),
-
     description: joi.string().required().messages({
         "string.empty": "Mô tả không được để trống",
         "any.required": "Mô tả là bắt buộc",
