@@ -4,7 +4,7 @@ export const comicSchema = joi.object({
         "string.empty": "Tên không được để trống",
         "any.required": "Tên là bắt buộc",
     }),
-    author_id: joi.number().required().messages({
+    author_id: joi.string().required().messages({
         "number.base": "ID tác giả phải là một số",
         "any.required": "ID tác giả là bắt buộc",
     }),
@@ -25,7 +25,7 @@ export const comicSchema = joi.object({
         "string.empty": "Mô tả không được để trống",
         "any.required": "Mô tả là bắt buộc",
     }),
-    cate_id: joi.number().required().messages({
+    category_id: joi.string().required().messages({
         "number.base": "ID danh mục phải là một số",
         "any.required": "ID danh mục là bắt buộc",
     }),

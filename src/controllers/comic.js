@@ -60,21 +60,23 @@ export const removeComic = async (req, res) => {
 
 export const updateComic = async (req, res) => {
     try {
-        const comicId = req.params.id;
-        const updatedData = req.body;
-        const validationResult = comicSchema.validate(updatedData);
-        if (validationResult.error) {
-            return res.status(400).json({ message: validationResult.error.message });
+        // Code
+        const comic = await Comic.findOneAndUpdate({ _id: req.params.id }, req.body, {
+            new: true,
+        });
+        if (!comic) {
+            return res.json({
+                message: "Cập nhật sản phẩm không thành công",
+            });
         }
-        const updatedComic = await Comic.findByIdAndUpdate({ _id: comicId }, updatedData, { new: true });
-        if (!updatedComic) {
-            return res.status(404).json({ message: 'Comic not found' });
-        }
-        return res.status(200).json(updatedComic);
+        return res.json({
+            message: "Cập nhật sản phẩm thành công",
+            comic,
+        });
     } catch (error) {
         return res.status(400).json({
             message: error.message
-        });
+        })
     }
 };
 

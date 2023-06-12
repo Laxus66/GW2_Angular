@@ -2,7 +2,8 @@ import User from "../models/user";
 import bcrypt from "bcryptjs";
 import { signinSchema, signupSchema } from "../schemas/user";
 import jwt from "jsonwebtoken";
-
+import dotenv from "dotenv"
+dotenv.config()
 export const signUp = async (req, res) => {
   console.log("Đăng ký");
   try {
@@ -29,14 +30,14 @@ export const signUp = async (req, res) => {
       password: hashedPassword,
     });
 
-    const token = jwt.sign({ id: user._id }, { expiresIn: "1d" });
+    const token = jwt.sign({ _id: user._id }, process.env.SECRET_KEY, { expiresIn: 60 * 60 });
     user.password = undefined;
     return res.status(201).json({
       message: "Tạo tài khoản thành công",
       accessToken: token,
       user,
     });
-  } catch (error) {}
+  } catch (error) { }
 };
 
 export const signIn = async (req, res) => {
@@ -64,14 +65,13 @@ export const signIn = async (req, res) => {
         messages: "Sai mật khẩu",
       });
     }
-    const token = jwt.sign({ id: user._id }, "abc", { expiresIn: "1d" });
-    user.password = undefined;
+    const token = jwt.sign({ _id: user._id }, process.env.SECRET_KEY, { expiresIn: 60 * 60 }); user.password = undefined;
     return res.status(200).json({
       message: "Đăng nhập thành công",
       accessToken: token,
       user,
     });
-  } catch (error) {}
+  } catch (error) { }
 };
 
 export const getUsers = async (req, res) => {

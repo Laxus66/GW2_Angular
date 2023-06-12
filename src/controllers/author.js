@@ -25,7 +25,7 @@ export const getAllAuthors = async (req, res) => {
 export const getOneAuthor = async (req, res) => {
     try {
         // Code
-        const authors = await Author.findById(req.params.id).populate("authors");
+        const authors = await Author.findById(req.params.id);
         if (!authors) {
             return res.json({
                 message: "Không tìm thấy danh mục",
