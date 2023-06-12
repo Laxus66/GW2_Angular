@@ -1,6 +1,7 @@
-import mongoose from "mongose"
+import mongoose from "mongoose"
+
 const authorSchema = new mongoose.Schema({
-    // Code
+    name: String,
 },
     { timestamps: true, versionKey: false }
 )

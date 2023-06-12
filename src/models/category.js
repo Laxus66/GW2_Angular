@@ -1,7 +1,10 @@
-import mongoose from "mongose"
+import mongoose from "mongoose"
 const categorySchema = new mongoose.Schema({
-    // Code
+    name: {
+        type: String,
+    }
 },
     { timestamps: true, versionKey: false }
 )
+
 export default mongoose.model("Category", categorySchema);
