@@ -5,6 +5,7 @@ import jwt from "jsonwebtoken";
 import dotenv from "dotenv"
 dotenv.config()
 export const signUp = async (req, res) => {
+  console.log("Đăng ký");
   try {
     const { error } = signupSchema.validate(req.body, { abortEarly: false });
     if (error) {
@@ -40,7 +41,7 @@ export const signUp = async (req, res) => {
 };
 
 export const signIn = async (req, res) => {
-  console.log(1);
+  console.log("Đăng nhập");
   try {
     const { error } = signinSchema.validate(req.body, { abortEarly: false });
     if (error) {
@@ -71,4 +72,29 @@ export const signIn = async (req, res) => {
       user,
     });
   } catch (error) { }
+};
+
+export const getUsers = async (req, res) => {
+  console.log("Danh sách users");
+  try {
+    const users = await User.find();
+    return res.status(200).json({
+      users,
+    });
+  } catch (error) {
+    return res
+      .status(500)
+      .json({ message: "Lỗi khi lấy danh sách người dùng" });
+  }
+};
+
+export const deleteUser = async (req, res) => {
+  console.log("Xóa users");
+  try {
+    const { id } = req.params;
+    await User.findByIdAndDelete(id);
+    return res.status(200).json({ message: "Xóa người dùng thành công" });
+  } catch (error) {
+    return res.status(500).json({ message: "Lỗi khi xóa người dùng" });
+  }
 };
