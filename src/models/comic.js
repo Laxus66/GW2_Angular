@@ -11,18 +11,6 @@ const comicSchema = new mongoose.Schema({
         required: [true, "ID tác giả là bắt buộc"],
     },
     images: {
-        // type: [
-        //     {
-        //         id: {
-        //             type: Number,
-        //             required: [true, "ID hình ảnh là bắt buộc"],
-        //         },
-        //         image: {
-        //             type: String,
-        //             required: [true, "Hình ảnh là bắt buộc"],
-        //         },
-        //     },
-        // ],
         type: String,
         required: [true, "Danh sách hình ảnh là bắt buộc"],
     },
