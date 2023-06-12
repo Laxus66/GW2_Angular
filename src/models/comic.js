@@ -18,20 +18,6 @@ const comicSchema = new mongoose.Schema({
         type: String,
         required: [true, "Story là bắt buộc"],
     },
-        type: [
-            {
-                id: {
-                    type: Number,
-                    required: [true, "ID hình ảnh là bắt buộc"],
-                },
-                image: {
-                    type: String,
-                    required: [true, "Hình ảnh là bắt buộc"],
-                },
-            },
-        ],
-        required: [true, "Danh sách hình ảnh là bắt buộc"],
-    },
     description: {
         type: String,
         required: [true, "Mô tả là bắt buộc"],
