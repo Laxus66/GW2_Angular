@@ -4,10 +4,10 @@ import { createComic, getAllComics, getOneComic, removeComic, updateComic } from
 
 const router = express.Router();
 
-router.post('/comic/add', check, createComic);
+router.post('/comic/add', createComic);
 router.get('/comic', getAllComics);
 router.get('/comic/:id', getOneComic);
-router.delete('/comic/:id', check, removeComic);
-router.put('/comic/:id/update', check, updateComic);
+router.delete('/comic/:id', removeComic);
+router.put('/comic/:id/update', updateComic);
 
 export default router;
